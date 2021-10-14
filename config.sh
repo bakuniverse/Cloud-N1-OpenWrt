@@ -56,7 +56,7 @@ CONFIG_TARGET_PROFILE="Default"
 CONFIG_TARGET_ARCH_PACKAGES="aarch64_cortex-a53"
 CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=cortex-a53"
 CONFIG_CPU_TYPE="cortex-a53"
-CONFIG_LINUX_5_10=y
+CONFIG_LINUX_5_4=y
 CONFIG_DEFAULT_base-files=y
 CONFIG_DEFAULT_block-mount=y
 CONFIG_DEFAULT_busybox=y
@@ -103,6 +103,7 @@ CONFIG_DEFAULT_procd=y
 CONFIG_DEFAULT_uci=y
 CONFIG_DEFAULT_uclient-fetch=y
 CONFIG_DEFAULT_urandom-seed=y
+CONFIG_HAS_TESTING_KERNEL=y
 CONFIG_HAS_FPU=y
 CONFIG_AUDIO_SUPPORT=y
 CONFIG_GPIO_SUPPORT=y
@@ -163,6 +164,7 @@ CONFIG_SIGNATURE_CHECK=y
 #
 # General build options
 #
+# CONFIG_TESTING_KERNEL is not set
 CONFIG_DISPLAY_SUPPORT=y
 # CONFIG_BUILD_PATENTED is not set
 # CONFIG_BUILD_NLS is not set
@@ -1702,9 +1704,9 @@ CONFIG_PACKAGE_ipv6helper=y
 # CONFIG_PACKAGE_jose is not set
 # CONFIG_PACKAGE_k3wifi is not set
 # CONFIG_PACKAGE_libjose is not set
-CONFIG_PACKAGE_nginx=y
-CONFIG_PACKAGE_nginx-mod-luci-ssl=y
-CONFIG_PACKAGE_nginx-util=y
+# CONFIG_PACKAGE_nginx is not set
+# CONFIG_PACKAGE_nginx-mod-luci-ssl is not set
+# CONFIG_PACKAGE_nginx-util is not set
 # CONFIG_PACKAGE_tang is not set
 # end of Extra packages
 
@@ -2422,6 +2424,10 @@ CONFIG_PACKAGE_kmod-pppoe=y
 # CONFIG_PACKAGE_kmod-pppol2tp is not set
 CONFIG_PACKAGE_kmod-pppox=y
 # CONFIG_PACKAGE_kmod-pptp is not set
+# CONFIG_PACKAGE_kmod-qca-nss-ecm-noload is not set
+# CONFIG_PACKAGE_kmod-qca-nss-ecm-premium is not set
+# CONFIG_PACKAGE_kmod-qca-nss-ecm-premium-noload is not set
+# CONFIG_PACKAGE_kmod-qca-nss-ecm-standard is not set
 # CONFIG_PACKAGE_kmod-sched is not set
 # CONFIG_PACKAGE_kmod-sched-act-vlan is not set
 # CONFIG_PACKAGE_kmod-sched-bpf is not set
@@ -3976,8 +3982,7 @@ CONFIG_PACKAGE_libblkid=y
 CONFIG_PACKAGE_libblobmsg-json=y
 CONFIG_PACKAGE_libbpf=y
 # CONFIG_PACKAGE_libbsd is not set
-CONFIG_PACKAGE_libcap=y
-# CONFIG_PACKAGE_libcap-bin is not set
+# CONFIG_PACKAGE_libcap is not set
 # CONFIG_PACKAGE_libcap-ng is not set
 CONFIG_PACKAGE_libcares=y
 # CONFIG_PACKAGE_libcbor is not set
@@ -4390,8 +4395,8 @@ CONFIG_ZLIB_OPTIMIZE_SPEED=y
 CONFIG_PACKAGE_luci=y
 # CONFIG_PACKAGE_luci-lib-docker is not set
 # CONFIG_PACKAGE_luci-nginx is not set
-CONFIG_PACKAGE_luci-ssl-nginx=y
-# CONFIG_PACKAGE_luci-ssl-openssl is not set
+# CONFIG_PACKAGE_luci-ssl-nginx is not set
+CONFIG_PACKAGE_luci-ssl-openssl=y
 # end of 1. Collections
 
 #
@@ -4483,7 +4488,6 @@ CONFIG_PACKAGE_luci-app-diskman_INCLUDE_lsblk=y
 # CONFIG_PACKAGE_luci-app-familycloud is not set
 CONFIG_PACKAGE_luci-app-filetransfer=y
 CONFIG_PACKAGE_luci-app-firewall=y
-# CONFIG_PACKAGE_luci-app-flowoffload is not set
 # CONFIG_PACKAGE_luci-app-frpc is not set
 # CONFIG_PACKAGE_luci-app-frps is not set
 # CONFIG_PACKAGE_luci-app-fwknopd is not set
@@ -4577,14 +4581,12 @@ CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-ng=y
 # CONFIG_PACKAGE_luci-app-travelmate is not set
 # CONFIG_PACKAGE_luci-app-ttyd is not set
 CONFIG_PACKAGE_luci-app-turboacc=y
-CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_OFFLOADING=y
-# CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_SHORTCUT_FE_DRV is not set
-# CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_SHORTCUT_FE is not set
+CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_SHORTCUT_FE=y
 CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_BBR_CCA=y
 CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_DNSFORWARDER=y
 CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_DNSPROXY=y
 # CONFIG_PACKAGE_luci-app-udpxy is not set
-CONFIG_PACKAGE_luci-app-uhttpd=y
+# CONFIG_PACKAGE_luci-app-uhttpd is not set
 CONFIG_PACKAGE_luci-app-unblockmusic=y
 CONFIG_PACKAGE_luci-app-unblockmusic_INCLUDE_UnblockNeteaseMusic_Go=y
 # CONFIG_PACKAGE_luci-app-unblockmusic_INCLUDE_UnblockNeteaseMusic_NodeJS is not set
@@ -4597,7 +4599,7 @@ CONFIG_PACKAGE_luci-app-upnp=y
 # CONFIG_PACKAGE_luci-app-vlmcsd is not set
 # CONFIG_PACKAGE_luci-app-vnstat is not set
 # CONFIG_PACKAGE_luci-app-vpnbypass is not set
-CONFIG_PACKAGE_luci-app-vsftpd=y
+# CONFIG_PACKAGE_luci-app-vsftpd is not set
 # CONFIG_PACKAGE_luci-app-watchcat is not set
 CONFIG_PACKAGE_luci-app-webadmin=y
 # CONFIG_PACKAGE_luci-app-wifischedule is not set
@@ -4748,10 +4750,6 @@ CONFIG_PACKAGE_luci-i18n-passwall-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-passwall-zh_Hans is not set
 CONFIG_PACKAGE_luci-i18n-ramfree-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-turboacc-zh-cn=y
-# CONFIG_PACKAGE_luci-i18n-uhttpd-ja is not set
-# CONFIG_PACKAGE_luci-i18n-uhttpd-pt-br is not set
-# CONFIG_PACKAGE_luci-i18n-uhttpd-ru is not set
-CONFIG_PACKAGE_luci-i18n-uhttpd-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-unblockmusic-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-upnp-ca is not set
 # CONFIG_PACKAGE_luci-i18n-upnp-cs is not set
@@ -4778,7 +4776,6 @@ CONFIG_PACKAGE_luci-i18n-unblockmusic-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-upnp-vi is not set
 CONFIG_PACKAGE_luci-i18n-upnp-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-upnp-zh-tw is not set
-CONFIG_PACKAGE_luci-i18n-vsftpd-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-webadmin-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-wrtbwmon-zh-cn=y
 # end of LuCI
@@ -4947,8 +4944,7 @@ CONFIG_PACKAGE_curl=y
 # CONFIG_PACKAGE_rsync is not set
 # CONFIG_PACKAGE_rsyncd is not set
 # CONFIG_PACKAGE_vsftpd is not set
-CONFIG_PACKAGE_vsftpd-alt=y
-CONFIG_VSFTPD_USE_UCI_SCRIPTS=y
+# CONFIG_PACKAGE_vsftpd-alt is not set
 # CONFIG_PACKAGE_vsftpd-tls is not set
 # CONFIG_PACKAGE_wget-nossl is not set
 CONFIG_PACKAGE_wget-ssl=y
@@ -5565,58 +5561,9 @@ CONFIG_PACKAGE_kcptun-config=y
 CONFIG_PACKAGE_microsocks=y
 CONFIG_PACKAGE_naiveproxy=y
 # CONFIG_PACKAGE_nginx-all-module is not set
-CONFIG_PACKAGE_nginx-mod-luci=y
-CONFIG_PACKAGE_nginx-ssl=y
-
-#
-# Configuration
-#
-# CONFIG_NGINX_DAV is not set
-CONFIG_NGINX_UBUS=y
-# CONFIG_NGINX_FLV is not set
-# CONFIG_NGINX_STUB_STATUS is not set
-CONFIG_NGINX_HTTP_CHARSET=y
-CONFIG_NGINX_HTTP_GZIP=y
-CONFIG_NGINX_HTTP_SSI=y
-CONFIG_NGINX_HTTP_USERID=y
-CONFIG_NGINX_HTTP_ACCESS=y
-CONFIG_NGINX_HTTP_AUTH_BASIC=y
-# CONFIG_NGINX_HTTP_AUTH_REQUEST is not set
-CONFIG_NGINX_HTTP_AUTOINDEX=y
-CONFIG_NGINX_HTTP_GEO=y
-CONFIG_NGINX_HTTP_MAP=y
-CONFIG_NGINX_HTTP_SPLIT_CLIENTS=y
-CONFIG_NGINX_HTTP_REFERER=y
-CONFIG_NGINX_HTTP_REWRITE=y
-CONFIG_NGINX_HTTP_PROXY=y
-CONFIG_NGINX_HTTP_FASTCGI=y
-CONFIG_NGINX_HTTP_UWSGI=y
-CONFIG_NGINX_HTTP_SCGI=y
-CONFIG_NGINX_HTTP_MEMCACHED=y
-CONFIG_NGINX_HTTP_LIMIT_CONN=y
-CONFIG_NGINX_HTTP_LIMIT_REQ=y
-CONFIG_NGINX_HTTP_EMPTY_GIF=y
-CONFIG_NGINX_HTTP_BROWSER=y
-CONFIG_NGINX_HTTP_UPSTREAM_HASH=y
-CONFIG_NGINX_HTTP_UPSTREAM_IP_HASH=y
-CONFIG_NGINX_HTTP_UPSTREAM_LEAST_CONN=y
-CONFIG_NGINX_HTTP_UPSTREAM_KEEPALIVE=y
-CONFIG_NGINX_HTTP_CACHE=y
-CONFIG_NGINX_HTTP_V2=y
-CONFIG_NGINX_PCRE=y
-CONFIG_NGINX_NAXSI=y
-# CONFIG_NGINX_LUA is not set
-# CONFIG_NGINX_HTTP_REAL_IP is not set
-# CONFIG_NGINX_HTTP_SECURE_LINK is not set
-# CONFIG_NGINX_HTTP_SUB is not set
-CONFIG_NGINX_HEADERS_MORE=y
-# CONFIG_NGINX_HTTP_BROTLI is not set
-# CONFIG_NGINX_STREAM_CORE_MODULE is not set
-# CONFIG_NGINX_RTMP_MODULE is not set
-# CONFIG_NGINX_TS_MODULE is not set
-# end of Configuration
-
-CONFIG_PACKAGE_nginx-ssl-util=y
+# CONFIG_PACKAGE_nginx-mod-luci is not set
+# CONFIG_PACKAGE_nginx-ssl is not set
+# CONFIG_PACKAGE_nginx-ssl-util is not set
 # CONFIG_PACKAGE_nginx-ssl-util-nopcre is not set
 CONFIG_PACKAGE_pdnsd-alt=y
 # CONFIG_PACKAGE_polipo is not set
@@ -5660,12 +5607,7 @@ CONFIG_TROJAN_GO_COMPRESS_UPX=y
 CONFIG_PACKAGE_uhttpd=y
 # CONFIG_PACKAGE_uhttpd-mod-lua is not set
 CONFIG_PACKAGE_uhttpd-mod-ubus=y
-CONFIG_PACKAGE_uwsgi=y
-CONFIG_PACKAGE_uwsgi-cgi-plugin=y
-# CONFIG_PACKAGE_uwsgi-logfile-plugin is not set
-CONFIG_PACKAGE_uwsgi-luci-support=y
-# CONFIG_PACKAGE_uwsgi-python3-plugin is not set
-CONFIG_PACKAGE_uwsgi-syslog-plugin=y
+# CONFIG_PACKAGE_uwsgi is not set
 # end of Web Servers/Proxies
 
 #
