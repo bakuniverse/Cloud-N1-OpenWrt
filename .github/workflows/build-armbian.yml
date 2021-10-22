@@ -79,7 +79,7 @@ jobs:
         tag: Armbian_Aml_buster_${{ env.FILE_DATE }}
         artifacts: ${{ env.FILEPATH }}/*
         allowUpdates: true
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.RELEASES_TOKEN }}
         body: |
           This is Armbian image for amlogic s9xxx STB
           * Firmware information
