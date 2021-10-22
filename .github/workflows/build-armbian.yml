@@ -61,7 +61,6 @@ jobs:
         
     - name: Build Armbian [ ${{ env.ARMBIAN_BOARD }} ]
       id: build
-      if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd build/
         sudo chmod +x compile.sh
@@ -69,21 +68,20 @@ jobs:
                           BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no COMPRESS_OUTPUTIMAGE=sha,img
         echo "::set-output name=status::success"
 
-    - name: Upload firmware directory
-      uses: actions/upload-artifact@main
-      if: steps.organize.outputs.status == 'success' && !cancelled()
+    - name: Upload artifact to Actions
+      uses: kittaakos/upload-artifact-as-is@master
+      if: steps.build.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       with:
-        name: OpenWrt_firmware
-        path: ${{ env.FIRMWARE }}
+        path: ${{ env.FILEPATH }}/
         
     - name: Upload Armbian image to Release
+      id: release
       uses: ncipollo/release-action@v1
+      if: steps.make.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        name: ${{ env.DATE }} ❤️ | N1-armbian 自动编译
         tag: Armbian_Aml_buster_${{ env.FILE_DATE }}
+        artifacts: ${{ env.FILEPATH }}/*
         allowUpdates: true
-        artifacts: "${{ env.FIRMWARE }}/*"
-        commit: main
         token: ${{ secrets.RELEASES_TOKEN }}
         body: |
           This is Armbian image for amlogic s9xxx STB
