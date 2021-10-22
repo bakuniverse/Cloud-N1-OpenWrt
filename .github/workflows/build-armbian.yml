@@ -61,6 +61,7 @@ jobs:
         
     - name: Build Armbian [ ${{ env.ARMBIAN_BOARD }} ]
       id: build
+      if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd build/
         sudo chmod +x compile.sh
@@ -73,13 +74,15 @@ jobs:
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware
-        path: ${{ env.FILEPATH }}
+        path: ${{ env.FIRMWARE }}
         
     - name: Upload Armbian image to Release
       uses: ncipollo/release-action@v1
       with:
+        name: ${{ env.DATE }} ❤️ | N1-armbian 自动编译
         tag: Armbian_Aml_buster_${{ env.FILE_DATE }}
-        artifacts: ${{ env.FILEPATH }}/*
+        allowUpdates: true
+        artifacts: "${{ env.FIRMWARE }}/*"
         commit: main
         token: ${{ secrets.RELEASES_TOKEN }}
         body: |
