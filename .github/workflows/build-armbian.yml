@@ -24,12 +24,15 @@ env:
 jobs:
   build:
     runs-on: ubuntu-20.04
-    if: github.event.repository.owner.id == github.event.sender.id
+    name: Build Armbian For Amlogic
+
 
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
+      with:
+        ref: main
+        
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -70,16 +73,14 @@ jobs:
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware
-        path: ${{ env.FILEPATH }}/
+        path: ${{ env.FILEPATH }}
         
     - name: Upload Armbian image to Release
-      id: release
       uses: ncipollo/release-action@v1
-      if: steps.make.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         tag: Armbian_Aml_buster_${{ env.FILE_DATE }}
         artifacts: ${{ env.FILEPATH }}/*
-        allowUpdates: true
+        commit: main
         token: ${{ secrets.RELEASES_TOKEN }}
         body: |
           This is Armbian image for amlogic s9xxx STB
