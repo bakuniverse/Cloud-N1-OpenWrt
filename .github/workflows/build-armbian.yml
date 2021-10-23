@@ -1,6 +1,8 @@
 name: Build Armbian For Amlogic
 
 on:
+  repository_dispatch:
+  workflow_dispatch:
     inputs:
       set_board:
         description: 'Optional: lepotato / odroidn2'
