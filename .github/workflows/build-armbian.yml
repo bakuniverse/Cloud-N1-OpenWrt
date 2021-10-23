@@ -1,9 +1,6 @@
 name: Build Armbian For Amlogic
 
 on:
-     push:
-    branches:
-      - main
     inputs:
       set_board:
         description: 'Optional: lepotato / odroidn2'
