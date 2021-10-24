@@ -96,5 +96,3 @@ jobs:
           * Firmware information
           Default username: root
           Default password: 1234
-          Install to EMMC command: armbian-install
-          Update command: armbian-update
