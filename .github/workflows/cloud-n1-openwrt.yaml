@@ -1,6 +1,13 @@
 name: Cloud N1 OpenWrt
 
 on:
+  repository_dispatch:
+  workflow_dispatch:
+      inputs:
+      set_board:
+        description: 'Optional: lepotato / odroidn2'
+        required: false
+        default: 'lepotato'
   push:
     branches:
       - main
@@ -43,6 +50,13 @@ jobs:
         sudo -E apt-get -y autoremove --purge
         sudo -E apt-get clean
         sudo timedatectl set-timezone "$TZ"
+        ARR_BOARD=("lepotato" "odroidn2")
+        if  [[ -n "${{ github.event.inputs.set_board }}" && -n "$(echo "${ARR_BOARD[@]}" | grep -w "${{ github.event.inputs.set_board }}")" ]]; then
+            set_board="${{ github.event.inputs.set_board }}"
+        else
+            set_board="lepotato"
+        fi
+        echo "ARMBIAN_BOARD=${set_board}" >> $GITHUB_ENV
         df -h
 
     - name: Clone source code
