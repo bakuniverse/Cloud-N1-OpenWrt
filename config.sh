@@ -426,6 +426,8 @@ CONFIG_FEED_luci=y
 CONFIG_FEED_routing=y
 CONFIG_FEED_telephony=y
 CONFIG_FEED_diy1=y
+CONFIG_FEED_kenzo=y
+CONFIG_FEED_mos=y
 
 #
 # Base system
@@ -1697,7 +1699,6 @@ CONFIG_PACKAGE_netdata=y
 #
 # Extra packages
 #
-# CONFIG_PACKAGE_autocore-arm is not set
 # CONFIG_PACKAGE_automount is not set
 # CONFIG_PACKAGE_autosamba is not set
 CONFIG_PACKAGE_ipv6helper=y
@@ -1707,6 +1708,7 @@ CONFIG_PACKAGE_ipv6helper=y
 # CONFIG_PACKAGE_nginx is not set
 # CONFIG_PACKAGE_nginx-mod-luci-ssl is not set
 # CONFIG_PACKAGE_nginx-util is not set
+# CONFIG_PACKAGE_rclone-config is not set
 # CONFIG_PACKAGE_tang is not set
 # end of Extra packages
 
@@ -2725,7 +2727,6 @@ CONFIG_PACKAGE_kmod-tpm=y
 # CONFIG_PACKAGE_kmod-p54-common is not set
 # CONFIG_PACKAGE_kmod-p54-pci is not set
 # CONFIG_PACKAGE_kmod-p54-usb is not set
-# CONFIG_PACKAGE_kmod-qtn-pcie2 is not set
 # CONFIG_PACKAGE_kmod-rsi91x is not set
 # CONFIG_PACKAGE_kmod-rsi91x-sdio is not set
 # CONFIG_PACKAGE_kmod-rsi91x-usb is not set
@@ -4491,6 +4492,7 @@ CONFIG_PACKAGE_luci-app-firewall=y
 # CONFIG_PACKAGE_luci-app-frpc is not set
 # CONFIG_PACKAGE_luci-app-frps is not set
 # CONFIG_PACKAGE_luci-app-fwknopd is not set
+# CONFIG_PACKAGE_luci-app-go-aliyundrive-webdav is not set
 # CONFIG_PACKAGE_luci-app-guest-wifi is not set
 # CONFIG_PACKAGE_luci-app-haproxy-tcp is not set
 # CONFIG_PACKAGE_luci-app-hd-idle is not set
@@ -4502,6 +4504,7 @@ CONFIG_PACKAGE_luci-app-firewall=y
 # CONFIG_PACKAGE_luci-app-lxc is not set
 # CONFIG_PACKAGE_luci-app-minidlna is not set
 # CONFIG_PACKAGE_luci-app-mjpg-streamer is not set
+CONFIG_PACKAGE_luci-app-mosdns=y
 # CONFIG_PACKAGE_luci-app-music-remote-center is not set
 # CONFIG_PACKAGE_luci-app-mwan3 is not set
 # CONFIG_PACKAGE_luci-app-mwan3helper is not set
@@ -4544,6 +4547,7 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray=y
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Plugin is not set
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin is not set
 # end of Configuration
 
 # CONFIG_PACKAGE_luci-app-polipo is not set
@@ -4570,6 +4574,7 @@ CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-ng=y
 # CONFIG_PACKAGE_luci-app-siitwizard is not set
 # CONFIG_PACKAGE_luci-app-simple-adblock is not set
 # CONFIG_PACKAGE_luci-app-softethervpn is not set
+# CONFIG_PACKAGE_luci-app-speederv2 is not set
 # CONFIG_PACKAGE_luci-app-splash is not set
 # CONFIG_PACKAGE_luci-app-sqm is not set
 # CONFIG_PACKAGE_luci-app-squid is not set
@@ -4587,6 +4592,7 @@ CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_OFFLOADING=y
 CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_BBR_CCA=y
 CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_DNSFORWARDER=y
 CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_DNSPROXY=y
+# CONFIG_PACKAGE_luci-app-udp2raw is not set
 # CONFIG_PACKAGE_luci-app-udpxy is not set
 # CONFIG_PACKAGE_luci-app-uhttpd is not set
 CONFIG_PACKAGE_luci-app-unblockmusic=y
@@ -4619,6 +4625,7 @@ CONFIG_PACKAGE_luci-theme-argon=y
 CONFIG_PACKAGE_luci-theme-bootstrap=y
 # CONFIG_PACKAGE_luci-theme-material is not set
 # CONFIG_PACKAGE_luci-theme-netgear is not set
+CONFIG_PACKAGE_luci-theme-opentomcat=y
 # end of 4. Themes
 
 #
@@ -4744,6 +4751,7 @@ CONFIG_PACKAGE_luci-i18n-filetransfer-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-firewall-vi is not set
 CONFIG_PACKAGE_luci-i18n-firewall-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-firewall-zh-tw is not set
+CONFIG_PACKAGE_luci-i18n-mosdns-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-netdata-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-nlbwmon-ja is not set
 # CONFIG_PACKAGE_luci-i18n-nlbwmon-ru is not set
@@ -4937,6 +4945,9 @@ CONFIG_UNBLOCKNETEASEMUSIC_GO_COMPRESS_UPX=y
 # CONFIG_PACKAGE_atftpd is not set
 CONFIG_PACKAGE_curl=y
 # CONFIG_PACKAGE_gnurl is not set
+# CONFIG_PACKAGE_go-aliyundrive-webdav is not set
+# CONFIG_GO_ALIYUNDRIVE_WEBDAV_COMPRESS_GOPROXY is not set
+CONFIG_GO_ALIYUNDRIVE_WEBDAV_COMPRESS_UPX=y
 # CONFIG_PACKAGE_lftp is not set
 # CONFIG_PACKAGE_ps3netsrv is not set
 # CONFIG_PACKAGE_rclone is not set
@@ -5145,6 +5156,9 @@ CONFIG_DNSPROXY_COMPRESS_UPX=y
 # CONFIG_PACKAGE_mdns-utils is not set
 # CONFIG_PACKAGE_mdnsd is not set
 # CONFIG_PACKAGE_mdnsresponder is not set
+CONFIG_PACKAGE_mosdns=y
+# CONFIG_MOSDNS_COMPRESS_GOPROXY is not set
+CONFIG_MOSDNS_COMPRESS_UPX=y
 # CONFIG_PACKAGE_nsd is not set
 # CONFIG_PACKAGE_nsd-control is not set
 # CONFIG_PACKAGE_nsd-control-setup is not set
@@ -5155,6 +5169,7 @@ CONFIG_DNSPROXY_COMPRESS_UPX=y
 # CONFIG_PACKAGE_pdns-ixfrdist is not set
 # CONFIG_PACKAGE_pdns-recursor is not set
 # CONFIG_PACKAGE_pdns-tools is not set
+CONFIG_PACKAGE_pdnsd-alt=y
 # CONFIG_PACKAGE_stubby is not set
 # CONFIG_PACKAGE_tor-hs is not set
 # CONFIG_PACKAGE_torsocks is not set
@@ -5567,7 +5582,6 @@ CONFIG_PACKAGE_naiveproxy=y
 # CONFIG_PACKAGE_nginx-ssl is not set
 # CONFIG_PACKAGE_nginx-ssl-util is not set
 # CONFIG_PACKAGE_nginx-ssl-util-nopcre is not set
-CONFIG_PACKAGE_pdnsd-alt=y
 # CONFIG_PACKAGE_polipo is not set
 # CONFIG_PACKAGE_privoxy is not set
 # CONFIG_PACKAGE_python3-gunicorn is not set
@@ -5596,7 +5610,6 @@ CONFIG_PACKAGE_shadowsocksr-libev-ssr-server=y
 # CONFIG_PACKAGE_squid is not set
 # CONFIG_PACKAGE_srelay is not set
 # CONFIG_PACKAGE_tinyproxy is not set
-# CONFIG_PACKAGE_trojan is not set
 CONFIG_PACKAGE_trojan-go=y
 
 #
@@ -5610,6 +5623,12 @@ CONFIG_PACKAGE_uhttpd=y
 # CONFIG_PACKAGE_uhttpd-mod-lua is not set
 CONFIG_PACKAGE_uhttpd-mod-ubus=y
 # CONFIG_PACKAGE_uwsgi is not set
+# CONFIG_PACKAGE_v2ray-plugin is not set
+# CONFIG_V2RAY_PLUGIN_INCLUDE_GOPROXY is not set
+CONFIG_V2RAY_PLUGIN_COMPRESS_UPX=y
+# CONFIG_PACKAGE_xray-plugin is not set
+# CONFIG_XRAY_PLUGIN_COMPRESS_GOPROXY is not set
+CONFIG_XRAY_PLUGIN_COMPRESS_UPX=y
 # end of Web Servers/Proxies
 
 #
@@ -5800,7 +5819,6 @@ CONFIG_PACKAGE_libipset=y
 # CONFIG_PACKAGE_mosquitto-ssl is not set
 # CONFIG_PACKAGE_mrd6 is not set
 # CONFIG_PACKAGE_mstpd is not set
-# CONFIG_PACKAGE_mtk_apcli is not set
 # CONFIG_PACKAGE_mtr is not set
 # CONFIG_PACKAGE_nbd is not set
 # CONFIG_PACKAGE_nbd-server is not set
@@ -5895,8 +5913,15 @@ CONFIG_PACKAGE_ppp-mod-pppoe=y
 # CONFIG_PACKAGE_seafile-server-fuse is not set
 # CONFIG_PACKAGE_ser2net is not set
 # CONFIG_PACKAGE_simple-adblock is not set
-CONFIG_PACKAGE_simple-obfs-client=y
+CONFIG_PACKAGE_simple-obfs=y
 # CONFIG_PACKAGE_simple-obfs-server is not set
+
+#
+# Simple-obfs Compile Configuration
+#
+# CONFIG_SIMPLE_OBFS_STATIC_LINK is not set
+# end of Simple-obfs Compile Configuration
+
 # CONFIG_PACKAGE_smartdns is not set
 # CONFIG_PACKAGE_smbinfo is not set
 # CONFIG_PACKAGE_snmp-mibs is not set
@@ -5906,6 +5931,7 @@ CONFIG_PACKAGE_simple-obfs-client=y
 # CONFIG_PACKAGE_socat is not set
 # CONFIG_PACKAGE_softflowd is not set
 # CONFIG_PACKAGE_soloscli is not set
+# CONFIG_PACKAGE_speederv2-tunnel is not set
 # CONFIG_PACKAGE_speedtest-netperf is not set
 # CONFIG_PACKAGE_spoofer is not set
 # CONFIG_PACKAGE_ssocks is not set
@@ -5927,10 +5953,12 @@ CONFIG_PACKAGE_tcping=y
 # CONFIG_PACKAGE_tor-fw-helper is not set
 # CONFIG_PACKAGE_trafficshaper is not set
 # CONFIG_PACKAGE_travelmate is not set
+# CONFIG_PACKAGE_trojan is not set
 CONFIG_PACKAGE_trojan-plus=y
 # CONFIG_PACKAGE_u2pnpd is not set
 # CONFIG_PACKAGE_uacme is not set
 CONFIG_PACKAGE_uclient-fetch=y
+# CONFIG_PACKAGE_udp2raw-tunnel is not set
 # CONFIG_PACKAGE_udptunnel is not set
 # CONFIG_PACKAGE_udpxy is not set
 # CONFIG_PACKAGE_ulogd is not set
@@ -5947,10 +5975,9 @@ CONFIG_V2RAY_CORE_COMPRESS_UPX=y
 # end of v2ray-core Configuration
 
 # CONFIG_PACKAGE_v2ray-ctl is not set
+# CONFIG_PACKAGE_v2ray-example is not set
 # CONFIG_PACKAGE_v2ray-extra is not set
 # CONFIG_PACKAGE_v2ray-geodata is not set
-# CONFIG_PACKAGE_v2ray-plugin is not set
-# CONFIG_v2ray-plugin_INCLUDE_GOPROXY is not set
 # CONFIG_PACKAGE_vallumd is not set
 # CONFIG_PACKAGE_verysync is not set
 # CONFIG_PACKAGE_vlmcsd is not set
@@ -5979,10 +6006,6 @@ CONFIG_XRAY_CORE_COMPRESS_UPX=y
 
 # CONFIG_PACKAGE_xray-example is not set
 # CONFIG_PACKAGE_xray-geodata is not set
-# CONFIG_PACKAGE_xray-plugin is not set
-# CONFIG_XRAY_PLUGIN_PROVIDE_V2RAY_PLUGIN is not set
-# CONFIG_XRAY_PLUGIN_COMPRESS_GOPROXY is not set
-CONFIG_XRAY_PLUGIN_COMPRESS_UPX=y
 # end of Network
 
 #
